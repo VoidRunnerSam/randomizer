@@ -1,0 +1,116 @@
+{
+  "Body Weight": {
+    "skinny": { "weight": 4 },
+    "average": { "weight": 6 },    
+    "overweight": { "weight": 4 },
+    "athletic": { "weight": 2 }
+  },
+  "Natural Complexion": {
+      "pale": { "weight": 2 },
+      "average": { "weight": 8 },
+      "dark": { "weight": 3 },
+      "very dark": { "weight": 1 }
+  },
+  "Colorful Complexion": {
+    "red": { "weight": 1 },
+    "blue": { "weight": 1 },
+    "yellow": { "weight": 1 },
+    "green": { "weight": 1 },
+    "orange": { "weight": 1 },
+    "purple": { "weight": 1 },
+    "black": { "weight": 1 },
+    "white": { "weight": 1 },
+    "brown": { "weight": 1 },
+    "pink": { "weight": 1 },
+    "gray": { "weight": 1 }
+  },
+  "Eye Color": {
+    "red": { "weight": 1 },
+    "blue": { "weight": 1 },
+    "yellow": { "weight": 1 },
+    "green": { "weight": 1 },
+    "orange": { "weight": 1 },
+    "purple": { "weight": 1 },
+    "black": { "weight": 1 },
+    "white": { "weight": 1 },
+    "brown": { "weight": 1 },
+    "pink": { "weight": 1 },
+    "gray": { "weight": 1 }
+  },
+  "Hair Color": {
+    "red": { "weight": 1 },
+    "blue": { "weight": 1 },
+    "yellow": { "weight": 1 },
+    "green": { "weight": 1 },
+    "orange": { "weight": 1 },
+    "purple": { "weight": 1 },
+    "black": { "weight": 1 },
+    "white": { "weight": 1 },
+    "brown": { "weight": 1 },
+    "pink": { "weight": 1 },
+    "gray": { "weight": 1 }
+  },
+  "Hair Style": {
+    "twin_tails": { "weight": 3 },
+    "ponytail": { "weight": 4 },
+    "bun": { "weight": 2 },
+    "braids": { "weight": 3 },
+    "loose": { "weight": 5 },
+    "hime_cut": { "weight": 3 },
+    "drills": { "weight": 1 }
+  },
+  "Hair Length": {
+    "short": { "weight": 2 },
+    "medium": { "weight": 3 },
+    "long": { "weight": 5 },
+    "xlong": { "weight": 1 }
+  },
+  "Breast Size": {
+    "flat": { "weight": 1 },
+    "small": { "weight": 5 },
+    "medium": { "weight": 8 },
+    "large": { "weight": 4 },
+    "extra_large": { "weight": 1 }
+  },
+  "Height": {
+    "very_short": { "weight": 2 },
+    "short": { "weight": 3 },
+    "average": { "weight": 5 },
+    "tall": { "weight": 3 },
+    "very_tall": { "weight": 1 }
+  },
+  "Animalistic Family": {
+    "feline": { "weight": 8 },
+    "amphibian": { "weight": 4 },
+    "canine": { "weight": 8 },
+    "reptilian": { "weight": 6 },
+    "bunnylike": { "weight": 8 },
+    "avian": { "weight": 6 },
+    "bearlike": { "weight": 4 },
+    "rodentlike": { "weight": 4 },
+    "horselike": { "weight": 4 },
+    "aquatic": { "weight": 4 }
+  },
+  "Funky Animalistic": {
+    "centaur": { "weight": 2 },
+    "wings": { "weight": 4 },
+    "horns": { "weight": 4 },
+    "tentacles": { "weight": 2 },
+    "multiple_eyes": { "weight": 1 },
+    "tails": { "weight": 4 },
+    "animal ears": { "weight": 4 },
+    "claws_fangs": { "weight": 4 }
+  },
+  "Themes": {
+    "cyberpunk": { "weight": 5 },
+    "western": { "weight": 3 },
+    "fantasy": { "weight": 6 },
+    "sci-fi": { "weight": 4 },
+    "post-apocalyptic": { "weight": 2 },
+    "steampunk": { "weight": 3 },
+    "noir": { "weight": 2 },
+    "medieval": { "weight": 4 },
+    "modern": { "weight": 5 },
+    "horror": { "weight": 3 }
+  }
+}
