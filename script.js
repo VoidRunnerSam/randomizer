@@ -14,23 +14,43 @@ document.getElementById('fileInput').addEventListener('change', (event) => {
     reader.onload = (e) => {
         try {
             const parsedData = JSON.parse(e.target.result);
-            if (!parsedData) {
+            if (!parsedData || !isValidData(parsedData)) {
                 alert("Invalid or Corrupted JSON file!");
                 return;
             }
             data = parsedData;
-            output.innerHTML = "";
+            output.textContent = "";
             createCategories();
         } catch {
             alert("Invalid or Corrupted JSON file!");
         }
     };
+
     reader.readAsText(file);
     fileInput.value = "";
 });
 
+
+function isValidData(parsedData) {
+    if (typeof parsedData !== 'object' || parsedData === null) return false;
+
+    for (const category in parsedData) {
+        const values = parsedData[category];
+        if (typeof values !== 'object' || values === null) return false;
+
+        for (const option in values) {
+            const opt = values[option];
+            if (typeof opt !== 'object' || typeof opt.weight !== 'number') {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+
 function createCategories() {
-    categories.innerHTML = "";
+    categories.textContent = "";
 
     for (const category in data) {
         const div = document.createElement("div");
