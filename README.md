@@ -58,7 +58,7 @@ Your input JSON file should follow this structure and logic:
 
 MIT License — free to use, modify, or redistribute. Contributions welcome!
 
-## Credits
+## 🎨 Credits
 
 - check the [commits](https://github.com/VoidRunnerSam/randomizer/commits/main/) to see what people have contributed!
 - there is also the [issues](https://github.com/VoidRunnerSam/randomizer/issues) tab where people have reported anything wrong with the randomizer!
