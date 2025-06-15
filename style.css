@@ -1,0 +1,256 @@
+* {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 32px;
+    align-self: center;
+    text-align: center;
+}
+
+body { 
+    font-family: sans-serif; 
+    margin: 16px; 
+    background-color: #CCC; 
+    color: #000;
+    font-weight: bold;
+}
+
+.innerbody {
+    max-width: 768px;
+    margin: auto;
+}
+
+.button {
+    width: calc(100% - 16px);
+    background-color: #D3A4F8;
+    display: inline-block;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #D3A4F8;
+    color: #000;
+    border: none;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.1s;
+    box-sizing: border-box;
+}
+
+.container {
+    width: calc(100% - 32px);
+    background-color: white;
+    padding: 16px;
+    margin: 16px 16px;
+    border-radius: 16px;
+}
+  .container > * {
+    margin: 8px;
+  }
+
+code {
+    background-color: #CCC;
+    font-weight: bold;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+input[type="checkbox"] {
+    margin-right: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: #CCC;
+    border: 2px solid #CCC;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    vertical-align: middle;
+    transition: 0.1s;
+}
+
+.cc {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.cc input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    cursor: pointer;
+}
+
+.cc .cm {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    height: 24px;
+    width: 24px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    color: transparent; /* Hide icon by default */
+    transition: 0.2s;
+}
+
+.cc input[type="checkbox"]:checked + .cm {
+    background-color: #D3A4F8;
+    border-color: #A849F0;
+    color: #000; /* Show check icon */
+}
+
+
+input[type="range"] {
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    height: 8px;
+    background: #CCC;
+    width: 80%;
+    max-width: 65%;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    top: 12px;
+    }
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: #A849F0;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+input[type="range"]::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: #A849F0;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.slider{
+    display: flex;
+    align-items: right;
+    text-align: right;
+    justify-content: right;
+    margin: 0;
+    flex-wrap: nowrap;
+}
+.slider > * {
+    white-space: nowrap;
+    margin: 8px;
+}
+
+.category {
+    box-sizing: border-box;
+    padding: 16px;
+    margin: 8px;
+    border-radius: 8px;
+    border: 2px solid #CCC;
+}
+
+.buttonSmall{
+    background-color: #D3A4F8;
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #D3A4F8;
+    color: #000;
+    border: none;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.1s;
+    box-sizing: border-box;
+        height: 32px;
+    text-align: center;
+    align-content: center;
+}
+.row{
+    margin: 0;
+    padding: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hidden {
+    display: none;
+}
+
+.remove {
+    background: #CCC;
+    color: #000;
+    min-width: 32px;
+    height: 32px;
+    text-align: center;
+    align-content: center;
+    border-radius: 4px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.cd {
+    min-width: 32px;
+    text-align: center;
+    align-content: center;
+}
+
+.spaced{
+    margin: 0;
+}
+
+.spaced > * {
+    margin: 8px;
+}
+
+span, .material-symbols-rounded {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 600,
+    'GRAD' 0,
+    'opsz' 24;
+    font-size: 16px;
+    vertical-align: top;
+}
+
+.msrs {
+    font-size: 12px;
+    
+}
+
+.msrup {
+    vertical-align: -6px;
+    margin-right: 16px;
+}
+
+.inline {
+    margin-left: 16px;
+    padding: 4px 8px 4px 8px;
+    display: inline-block;
+    
+}
+
+#output .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #CCC;
+}
+#output .row:last-child {
+    border-bottom: none;
+}

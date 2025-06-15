@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Randomizer</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="innerbody">
+        <h1>Randomizer</h1>
+
+    <div class="container">
+        <label for="fileInput" class="button">choose .json file <span class="material-symbols-rounded">file_open</span> </label>
+            <input type="file" id="fileInput" accept="application/json" style="display:none;">
+    </div>
+    
+    <div class="container">
+        <button id="toggle" class="button"><span id="toggletext">waiting for .json</span> <span id="toggleicon" class="material-symbols-rounded">pending</span></button>
+        <div id="categories">
+        </div>
+        <div id="btns" class="spaced hidden">
+            <button id="addCategoryBtn" class="button">add category</button>
+            <button id="downloadPreset" onclick="download()" class="button">download preset</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <button onclick="generate()" class="button">generate <span class="material-symbols-rounded">casino</span></button>
+        <div class="output" id="output">
+        </div>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
