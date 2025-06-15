@@ -6,6 +6,11 @@ A simple web-based `json` randomizer and preset editor. Upload your own `.json` 
 
 [https://voidrunnersam.github.io/randomizer/](https://voidrunnersam.github.io/randomizer/)
 
+## ⚠️ Safety Notice
+
+- Always verify any files you download before opening them
+- All logic is fully client-side — no files are uploaded or stored externally
+
 ## 🚀 Features
 
 - Upload `.json` files using the [specified json formatting](#-json-format)
@@ -48,11 +53,6 @@ Your input JSON file should follow this structure and logic:
 
 - custom color themes with local storage use
 - fix any exploits found **(will be high priority when found)**
-
-## ⚠️ Safety Notice
-
-- Always verify any files you download before opening them
-- All logic is fully client-side — no files are uploaded or stored externally
 
 ## 📄 License
 
