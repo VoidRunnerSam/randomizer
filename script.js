@@ -4,7 +4,6 @@ const categories = document.getElementById("categories");
 const toggle = document.getElementById("toggle");
 const toggleicon = document.getElementById("toggleicon");
 const toggletext = document.getElementById("toggletext");
-const btns = document.getElementById("btns");
 const settings = document.getElementById("settings");
 const settingscontainer = document.getElementById("settingscontainer");
 
@@ -296,11 +295,9 @@ toggle.addEventListener("click", () => {
     if(data) {
         if (categories.classList.contains("hidden")) {
             categories.classList.remove("hidden");
-            btns.classList.remove("hidden");
             toggletext.textContent = "Hide Categories";
             toggleicon.textContent = "arrow_drop_up";
         } else {
-            btns.classList.add("hidden");
             categories.classList.add("hidden");
             toggletext.textContent = "Show Categories";
             toggleicon.textContent = "arrow_drop_down";
