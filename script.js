@@ -213,7 +213,6 @@ function createCategories() {
         div.appendChild(addaspect);
         categories.append(div);
         categories.classList.remove("hidden");
-        btns.classList.remove("hidden");
         toggletext.textContent = "Hide Categories";
         toggleicon.textContent = "arrow_drop_up";
     }
