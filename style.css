@@ -109,6 +109,8 @@ body {
     background-color: var(--bg); 
     color: var(--text);
     height: 110vh;
+    max-width: calc(768px - calc(var(--spacing) * 2));
+    margin: auto;
 }
 
 .innerbody {
@@ -379,7 +381,7 @@ span, .material-symbols-rounded {
 
 #settingscontainer {
     width: calc(100% - calc(var(--spacing) * 2));
-    max-width: 736px;
+    max-width: calc(768px - calc(var(--spacing) * 2));
     margin: auto;
     position: fixed;
     left: var(--spacing);
