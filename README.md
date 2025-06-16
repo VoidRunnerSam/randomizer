@@ -21,6 +21,7 @@ A simple web-based `json` randomizer and preset editor. Upload your own `.json` 
 - Client-side (no telemetry or data sharing)
 - Mobile-friendly
 - Open-source
+- 10 color theme combinations
 
 ## 🧮 JSON Format
 
@@ -46,12 +47,11 @@ Your input JSON file should follow this structure and logic:
 
 ### High Priority
 
-- add logic for custom weights and bad weight values
+
 - add preset loading from the folder so you dont **need** to download anything and can use the presets
 
 ### Medium Priority
 
-- custom color themes with local storage use
 - fix any exploits found **(will be high priority when found)**
 
 ## 📄 License

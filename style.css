@@ -307,11 +307,6 @@ input[type="range"]::-moz-range-thumb {
     justify-content: space-between;
 }
 
-.hidden {
-    display: none;
-    transition: 0.1s;
-}
-
 .remove {
     background: var(--bg);
     color: var(--text);
@@ -377,7 +372,9 @@ span, .material-symbols-rounded {
 }
 
 #settingscontainer {
-    width: calc(100% - 4em);;
+    width: calc(100% - 4em);
+    max-width: 736px;
+    margin: auto;
     position: fixed;
     left: var(--spacing);
     top: var(--spacing);
@@ -393,4 +390,18 @@ span, .material-symbols-rounded {
 .cm {
     padding: 2px; /* remove negative or any padding */
     margin: 0;  /* remove any margin */
+}
+
+.bc {
+    display: flex;
+    gap: var(--spacing); /* space between buttons */
+    align-items: center;
+}
+
+.hidden{
+    display: none;
+}
+
+.buttonhalf {
+    max-width: calc(50% - calc(var(--spacing) / 2));
 }

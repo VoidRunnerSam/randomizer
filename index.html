@@ -19,41 +19,52 @@
             <button id="toggle" class="button"><span id="toggletext">waiting for .json</span> <span id="toggleicon" class="material-symbols-rounded">pending</span></button>
             <div id="categories">
             </div>
-            <div id="btns" class="spaced hidden">
-                <button id="addCategoryBtn" class="button">add category</button>
-                <button id="downloadPreset" onclick="download()" class="button">download preset</button>
+            <div id="btns" class="hidden bc">
+                <button id="addCategoryBtn" class=" buttonhalf button">add category <span class="material-symbols-rounded">
+add
+</span></button>
+                <button id="downloadPreset" onclick="download()" class="buttonhalf button">download preset<span class="material-symbols-rounded">
+download
+</span></button>
             </div>
         </div>
 
         <div class="container">
-            <button onclick="generate()" class="button">generate <span class="material-symbols-rounded">casino</span></button>
+            <div class="bc">
+                <button onclick="generate()" class="button buttonhalf">generate <span class="material-symbols-rounded">casino</span></button>
+                <button class="button" onclick="copyresults()">copy results<span class="material-symbols-rounded">
+content_copy
+</span> </button>
+            </div>
             <div class="output" id="output">
             </div>
         </div>
 
         <div id="settingscontainer" class="container hidden">
-            <button class="button" id="themeToggle">Toggle Dark / Light</button>
-            <div class="accents">
+            <div class="bc">
+                <button class="button" id="themeToggle">Toggle Dark / Light</button>
+                <div class="accents">
+                    <label>
+                    <input type="radio" name="accent" value="accent-red">
+                    <span class="swatch red"></span>
+                </label>
                 <label>
-                <input type="radio" name="accent" value="accent-red">
-                <span class="swatch red"></span>
-            </label>
-            <label>
-                <input type="radio" name="accent" value="accent-yellow">
-                <span class="swatch yellow"></span>
-            </label>
-            <label>
-                <input type="radio" name="accent" value="accent-green">
-                <span class="swatch green"></span>
-            </label>
-            <label>
-                <input type="radio" name="accent" value="accent-blue">
-                <span class="swatch blue"></span>
-            </label>
-            <label>
-                <input type="radio" name="accent" value="accent-purple" checked>
-                <span class="swatch purple"></span>
-            </label>
+                    <input type="radio" name="accent" value="accent-yellow">
+                    <span class="swatch yellow"></span>
+                </label>
+                <label>
+                    <input type="radio" name="accent" value="accent-green">
+                    <span class="swatch green"></span>
+                </label>
+                <label>
+                    <input type="radio" name="accent" value="accent-blue">
+                    <span class="swatch blue"></span>
+                </label>
+                <label>
+                    <input type="radio" name="accent" value="accent-purple" checked>
+                    <span class="swatch purple"></span>
+                </label>
+                </div>
             </div>
             <div class="accents">
                 <input type="number" name="maxweight" id="maxweight"  min="1" step="1"> max weight

@@ -63,8 +63,7 @@ function loadMaxWeight() {
     const storedValue = localStorage.getItem("maxweight");
     maxWeight = storedValue !== null ? parseInt(storedValue) : 20;
     maxWeightInput.value = maxWeight;
-}
-
+};
 
 // Save value to localStorage when changed
 maxWeightInput.addEventListener("input", () => {
@@ -94,13 +93,8 @@ function updateAllSliders() {
         }
     });
     createCategories();
-}
-
-
-
-// Initialize on page load
+};
 loadMaxWeight();
-
 
 document.getElementById('fileInput').addEventListener('change', (event) => {
     const fileInput = event.target;
@@ -126,7 +120,6 @@ document.getElementById('fileInput').addEventListener('change', (event) => {
     fileInput.value = "";
 });
 
-
 function isValidData(parsedData) {
     if (typeof parsedData !== 'object' || parsedData === null) return false;
 
@@ -142,7 +135,7 @@ function isValidData(parsedData) {
         }
     }
     return true;
-}
+};
 
 function sanitizeWeight(value, defaultValue = 1) {
     const weight = parseInt(value);
@@ -150,7 +143,7 @@ function sanitizeWeight(value, defaultValue = 1) {
         return defaultValue;
     }
     return weight;
-}
+};
 
 function createCategories() {
     categories.textContent = "";
@@ -215,8 +208,7 @@ function createCategories() {
         toggletext.textContent = "Hide Categories";
         toggleicon.textContent = "arrow_drop_up";
     }
-}
-
+};
 
 function createOptionSlider(container, category, optionName, weight) {
     weight = sanitizeWeight(weight);
@@ -260,7 +252,7 @@ function createOptionSlider(container, category, optionName, weight) {
 
     const addAspectButton = container.querySelector(".buttonSmall");
     container.insertBefore(slider, addAspectButton);
-}
+};
 
 settings.addEventListener("click", () => {
     if (settingscontainer.classList.contains("hidden")) {
@@ -338,8 +330,7 @@ function generate() {
             return;
         }
     }
-
-}
+};
 
 function weightedRandom(obj) {
   let totalWeight = 0;
@@ -357,7 +348,7 @@ function weightedRandom(obj) {
     rand -= w;
   }
   return null;
-}
+};
 
 document.getElementById("addCategoryBtn").addEventListener("click", () => {
     const newCategoryName = prompt("Enter Category Name:");
@@ -412,7 +403,7 @@ function addAspectFn(category, categoryDiv) {
   console.log(container)
   createOptionSlider(container, category, trimmedName, 1);
   createCategories(); // bad practice, reload somewhere else
-}
+};
 
 function download() {
   if (!data) {
@@ -470,4 +461,48 @@ function download() {
   // Cleanup
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
-}
+};
+
+function copyresults() {
+    if (!output.hasChildNodes()) {
+        alert("No results to copy!");
+        return;
+    }
+
+    const rows = output.querySelectorAll(".row");
+    if (rows.length === 0) {
+        alert("No results to copy!");
+        return;
+    }
+
+    const lines = Array.from(rows).map(row => {
+        const lbl = row.querySelector("div");
+        const code = row.querySelector("code");
+        const labelText = lbl ? lbl.textContent.trim() : "";
+        const codeText = code ? code.textContent.trim() : "";
+        return `${labelText} ${codeText}`;
+    });
+
+    const textToCopy = lines.join("\n");
+
+    // Copy to clipboard (with fallback)
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            alert("Results copied to clipboard!");
+        }).catch(() => {
+            alert("Failed to copy results.");
+        });
+    } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = textToCopy;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            alert("Results copied to clipboard!");
+        } catch {
+            alert("Failed to copy results.");
+        }
+        document.body.removeChild(textarea);
+    }
+};
