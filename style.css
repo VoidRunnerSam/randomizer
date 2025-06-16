@@ -59,7 +59,10 @@ input[type="number"] {
     font-weight: bold;
     padding: calc(var(--spacing)/4);
     border-radius: calc(var(--radius) / 4);
-    margin: auto;
+    margin-left: auto;
+    margin-top: auto;
+    height: calc(var(--fontsize) * 1.5);
+    margin-bottom: auto;
 }
 
 input[type="radio"] {
