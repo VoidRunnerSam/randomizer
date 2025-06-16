@@ -104,6 +104,7 @@ body {
     margin: var(--spacing); 
     background-color: var(--bg); 
     color: var(--text);
+    height: 110vh;
 }
 
 .innerbody {
@@ -400,6 +401,10 @@ span, .material-symbols-rounded {
 
 .hidden{
     display: none;
+}
+
+spacer {
+    height: 64px;
 }
 
 .buttonhalf {
