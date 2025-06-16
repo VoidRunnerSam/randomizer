@@ -108,9 +108,9 @@ body {
     margin: var(--spacing); 
     background-color: var(--bg); 
     color: var(--text);
-    height: 110vh;
     max-width: calc(768px - calc(var(--spacing) * 2));
     margin: auto;
+    margin-bottom: 64px;
 }
 
 .innerbody {
