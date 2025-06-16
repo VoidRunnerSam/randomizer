@@ -5,6 +5,102 @@ const toggle = document.getElementById("toggle");
 const toggleicon = document.getElementById("toggleicon");
 const toggletext = document.getElementById("toggletext");
 const btns = document.getElementById("btns");
+const settings = document.getElementById("settings");
+const settingscontainer = document.getElementById("settingscontainer");
+
+// Elements
+const themeToggle = document.getElementById('themeToggle');
+const accentRadios = document.querySelectorAll('input[name="accent"]');
+
+// Load saved theme on page load
+window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    const savedAccent = localStorage.getItem('accent');
+
+    if (savedTheme === 'light') {
+        document.body.classList.remove('dark');
+    } else {
+        document.body.classList.add('dark');
+    }
+
+    if (savedAccent) {
+        document.body.classList.add(savedAccent);
+        const selectedRadio = document.querySelector(`input[name="accent"][value="${savedAccent}"]`);
+        if (selectedRadio) selectedRadio.checked = true;
+    }
+    else {
+        document.body.classList.add('accent-purple');
+    }
+});
+
+// Theme toggle
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const newTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+    localStorage.setItem('theme', newTheme);
+});
+
+// Accent color selection
+accentRadios.forEach(radio => {
+    radio.addEventListener('change', () => {
+        document.body.classList.remove(
+            'accent-red',
+            'accent-yellow',
+            'accent-green',
+            'accent-blue',
+            'accent-purple'
+        );
+        document.body.classList.add(radio.value);
+        localStorage.setItem('accent', radio.value);
+    });
+});
+
+const maxWeightInput = document.getElementById("maxweight");
+
+let maxWeight = 20; // default
+
+function loadMaxWeight() {
+    const storedValue = localStorage.getItem("maxweight");
+    maxWeight = storedValue !== null ? parseInt(storedValue) : 20;
+    maxWeightInput.value = maxWeight;
+}
+
+
+// Save value to localStorage when changed
+maxWeightInput.addEventListener("input", () => {
+    const value = parseInt(maxWeightInput.value);
+    if (!isNaN(value) && value > 0) {
+        localStorage.setItem("maxweight", value);
+    }
+});
+
+maxWeightInput.addEventListener("input", () => {
+    const value = parseInt(maxWeightInput.value);
+    if (!isNaN(value) && value > 0) {
+        maxWeight = value;
+        localStorage.setItem("maxweight", value);
+        updateAllSliders(); // update existing sliders too
+    }
+});
+
+function updateAllSliders() {
+    const allSliders = document.querySelectorAll('input[type="range"]');
+    allSliders.forEach(slider => {
+        slider.max = maxWeight;
+        // Clamp current value to new max if necessary
+        if (parseInt(slider.value) > maxWeight) {
+            slider.value = maxWeight;
+            slider.dispatchEvent(new Event("input")); // update display
+        }
+    });
+    createCategories();
+}
+
+
+
+// Initialize on page load
+loadMaxWeight();
+
 
 document.getElementById('fileInput').addEventListener('change', (event) => {
     const fileInput = event.target;
@@ -48,6 +144,13 @@ function isValidData(parsedData) {
     return true;
 }
 
+function sanitizeWeight(value, defaultValue = 1) {
+    const weight = parseInt(value);
+    if (isNaN(weight) || weight < 0 || weight > maxWeight) {
+        return defaultValue;
+    }
+    return weight;
+}
 
 function createCategories() {
     categories.textContent = "";
@@ -116,6 +219,7 @@ function createCategories() {
 
 
 function createOptionSlider(container, category, optionName, weight) {
+    weight = sanitizeWeight(weight);
     const slider = document.createElement("div");
     slider.className = "slider";
 
@@ -125,7 +229,7 @@ function createOptionSlider(container, category, optionName, weight) {
     const slide = document.createElement("input");
     slide.type = "range";
     slide.min = 0;
-    slide.max = 20;
+    slide.max = maxWeight;  // <-- dynamically use maxWeight
     slide.value = weight;
     slide.dataset.defaultWeight = weight;
     slide.dataset.option = optionName;
@@ -144,10 +248,8 @@ function createOptionSlider(container, category, optionName, weight) {
 
     remove.addEventListener("click", () => {
         container.removeChild(slider);
-
         let values = data[category];
         if (values.values) values = values.values;
-
         delete values[optionName];
     });
 
@@ -160,6 +262,16 @@ function createOptionSlider(container, category, optionName, weight) {
     container.insertBefore(slider, addAspectButton);
 }
 
+settings.addEventListener("click", () => {
+    if (settingscontainer.classList.contains("hidden")) {
+        settingscontainer.classList.remove("hidden");
+        settings.classList.add("accent");
+    } 
+    else {
+        settingscontainer.classList.add("hidden");
+        settings.classList.remove("accent");
+    }
+});
 
 toggle.addEventListener("click", () => {
     if(data) {

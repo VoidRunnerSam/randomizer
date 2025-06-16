@@ -8,18 +8,86 @@
   --fontsize: 1rem;
   --radius: 1rem;
   --spacing: 1rem;
+  --shadow: 0px 1px 4px #0003;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-    /* Default to light mode */
+.dark {
     --text: #FFF;
-    --accent: #542478;
+    --accent: var(--color-accent-dark);
     --color: #A849F0;
     --bgcontain: #000;
     --bg: #222;
-    }
 }
+
+/* Accent Presets (you switch these via classes) */
+
+body.accent-red {
+  --accent: #FF9D9D;
+  --color: #FF3B3B;
+  --color-accent-dark: #801D1D;
+}
+
+body.accent-yellow {
+  --accent: #FFDA72;
+  --color: #FFC62A;
+  --color-accent-dark: #82630C;
+}
+
+body.accent-green {
+  --accent: #80E195;
+  --color: #009E12;
+  --color-accent-dark: #006115;
+}
+
+body.accent-blue {
+  --accent: #81BCE6;
+  --color: #0479CD;
+  --color-accent-dark: #023D66;
+}
+
+body.accent-purple {
+  --accent: #D3A4F8;
+  --color: #A849F0;
+  --color-accent-dark: #542478;
+}
+
+input[type="number"] {
+    all: unset;
+    max-width: 64px;
+    background-color: var(--bg);
+    font-weight: bold;
+    padding: calc(var(--spacing)/4);
+    border-radius: calc(var(--radius) / 4);
+    margin: auto;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.swatch {
+    cursor: pointer;
+    display: inline-block;
+    width: calc(var(--fontsize) * 2);
+    height: calc(var(--fontsize) * 2);
+    border-radius: 50%;
+    border: 4px solid #fff0;
+    box-shadow: var(--shadow);
+    transition: 0.1s;
+}
+
+input:checked + .swatch { border-color: #FFF; }
+.swatch.red { background-color: #FF3B3B; }
+.swatch.yellow { background-color: #FFC62A; }
+.swatch.green { background-color: #009E12; }
+.swatch.blue { background-color: #0479CD; }
+.swatch.purple { background-color: #A849F0; }
+
+
+body.dark {
+  --accent: var(--color-accent-dark);
+}
+
 
 * {
     box-sizing: border-box;
@@ -44,6 +112,7 @@ body {
 }
 
 .button {
+    box-sizing: border-box;
     width: calc(100% - var(--spacing));
     background-color: var(--accent);
     display: inline-block;
@@ -53,11 +122,15 @@ body {
     border-radius: calc(var(--radius) / 2);
     background-color: var(--accent);
     color: var(--text);
-    border: none;
+        border: 2px solid var(--accent);
     font-weight: bold;
     text-align: center;
     transition: 0.1s;
     box-sizing: border-box;
+}
+
+.button:hover {
+    border: 2px solid var(--color);
 }
 
 .container {
@@ -66,10 +139,32 @@ body {
     padding: var(--spacing);
     margin: var(--spacing);
     border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
-  .container > * {
+
+.container > * {
     margin: calc(var(--spacing)/2); 
-  }
+}
+
+.floating {
+    background-color: var(--bgcontain);
+    padding: var(--spacing);
+    margin: var(--spacing);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    position: fixed;
+    bottom: var(--spacing);
+    right: var(--spacing);
+    order: 0;
+    border: 2px solid var(--bgcontain);
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.floating:hover {
+    background-color: var(--accent);
+    border: 2px solid var(--color);
+}
 
 code {
     background-color: var(--bg);
@@ -91,6 +186,11 @@ input[type="checkbox"] {
     position: relative;
     vertical-align: middle;
     transition: 0.1s;
+}
+
+.accent {
+    background-color: var(--accent);
+    border-color: var(--color);
 }
 
 .cc {
@@ -129,7 +229,6 @@ input[type="checkbox"] {
     border-color: var(--color);
     color: var(--text); /* Show check icon */
 }
-
 
 input[type="range"] {
     appearance: none;
@@ -250,6 +349,17 @@ span, .material-symbols-rounded {
     padding-left: calc(var(--spacing)/2);
 }
 
+.msb {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 600,
+    'GRAD' 0,
+    'opsz' 24;
+    font-size: calc( var(--fontsize) * 2);
+    vertical-align: top;
+    padding-left: 0;
+}
+
 .inline {
     margin-left: var(--spacing);
     padding: calc(var(--spacing)/2);
@@ -264,4 +374,23 @@ span, .material-symbols-rounded {
 }
 #output .row:last-child {
     border-bottom: none;
+}
+
+#settingscontainer {
+    width: calc(100% - 4em);;
+    position: fixed;
+    left: var(--spacing);
+    top: var(--spacing);
+    right: var(--spacing);
+}
+
+.accents {
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.cm {
+    padding: 2px; /* remove negative or any padding */
+    margin: 0;  /* remove any margin */
 }

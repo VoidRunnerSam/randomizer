@@ -10,27 +10,59 @@
     <div class="innerbody">
         <h1>Randomizer</h1>
 
-    <div class="container">
-        <label for="fileInput" class="button">choose .json file <span class="material-symbols-rounded">file_open</span> </label>
-            <input type="file" id="fileInput" accept="application/json" style="display:none;">
-    </div>
-    
-    <div class="container">
-        <button id="toggle" class="button"><span id="toggletext">waiting for .json</span> <span id="toggleicon" class="material-symbols-rounded">pending</span></button>
-        <div id="categories">
+        <div class="container">
+            <label for="fileInput" class="button">choose .json file <span class="material-symbols-rounded">file_open</span> </label>
+                <input type="file" id="fileInput" accept="application/json" style="display:none;">
         </div>
-        <div id="btns" class="spaced hidden">
-            <button id="addCategoryBtn" class="button">add category</button>
-            <button id="downloadPreset" onclick="download()" class="button">download preset</button>
+        
+        <div class="container">
+            <button id="toggle" class="button"><span id="toggletext">waiting for .json</span> <span id="toggleicon" class="material-symbols-rounded">pending</span></button>
+            <div id="categories">
+            </div>
+            <div id="btns" class="spaced hidden">
+                <button id="addCategoryBtn" class="button">add category</button>
+                <button id="downloadPreset" onclick="download()" class="button">download preset</button>
+            </div>
         </div>
-    </div>
 
-    <div class="container">
-        <button onclick="generate()" class="button">generate <span class="material-symbols-rounded">casino</span></button>
-        <div class="output" id="output">
+        <div class="container">
+            <button onclick="generate()" class="button">generate <span class="material-symbols-rounded">casino</span></button>
+            <div class="output" id="output">
+            </div>
         </div>
+
+        <div id="settingscontainer" class="container hidden">
+            <button class="button" id="themeToggle">Toggle Dark / Light</button>
+            <div class="accents">
+                <label>
+                <input type="radio" name="accent" value="accent-red">
+                <span class="swatch red"></span>
+            </label>
+            <label>
+                <input type="radio" name="accent" value="accent-yellow">
+                <span class="swatch yellow"></span>
+            </label>
+            <label>
+                <input type="radio" name="accent" value="accent-green">
+                <span class="swatch green"></span>
+            </label>
+            <label>
+                <input type="radio" name="accent" value="accent-blue">
+                <span class="swatch blue"></span>
+            </label>
+            <label>
+                <input type="radio" name="accent" value="accent-purple" checked>
+                <span class="swatch purple"></span>
+            </label>
+            </div>
+            <div class="accents">
+                <input type="number" name="maxweight" id="maxweight"  min="1" step="1"> max weight
+            </div>
+        </div>
+
     </div>
-    </div>
+    <div id="settings" class="floating"><span class="material-symbols-rounded msb">settings</span></div>
+
 
     <script src="script.js"></script>
 </body>
