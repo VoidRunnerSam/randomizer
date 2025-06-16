@@ -322,7 +322,7 @@ function generate() {
                 if (values[optionName]) {
                     values[optionName].weight = parseInt(slider.value);
                 }
-            );
+        });
 
             const row = document.createElement("div");
             row.className = "row";
@@ -342,7 +342,6 @@ function generate() {
             alert("Please select at least one category.");
             return;
         }
-    }
 };
 
 function weightedRandom(obj) {
