@@ -86,14 +86,17 @@ function updateAllSliders() {
     const allSliders = document.querySelectorAll('input[type="range"]');
     allSliders.forEach(slider => {
         slider.max = maxWeight;
-        // Clamp current value to new max if necessary
+        const numInput = slider.parentElement.querySelector('input[type="number"]');
         if (parseInt(slider.value) > maxWeight) {
             slider.value = maxWeight;
-            slider.dispatchEvent(new Event("input")); // update display
+            numInput.value = maxWeight;
+            slider.dispatchEvent(new Event("input"));
         }
+        numInput.max = maxWeight;
     });
     createCategories();
 };
+
 loadMaxWeight();
 
 document.getElementById('fileInput').addEventListener('change', (event) => {
@@ -221,17 +224,31 @@ function createOptionSlider(container, category, optionName, weight) {
     const slide = document.createElement("input");
     slide.type = "range";
     slide.min = 0;
-    slide.max = maxWeight;  // <-- dynamically use maxWeight
+    slide.max = maxWeight;
     slide.value = weight;
     slide.dataset.defaultWeight = weight;
     slide.dataset.option = optionName;
 
-    const valueDisplay = document.createElement("code");
-    valueDisplay.className = "cd";
-    valueDisplay.textContent = weight;
 
+    const numericInput = document.createElement("input");
+    numericInput.type = "number";
+    numericInput.min = 0;
+    numericInput.max = maxWeight;
+    numericInput.value = weight;
+    numericInput.style.marginLeft = "8px"; // optional
+
+    // Sync slider → numeric input
     slide.addEventListener("input", () => {
-        valueDisplay.textContent = slide.value;
+        numericInput.value = slide.value;
+    });
+
+    // Sync numeric input → slider
+    numericInput.addEventListener("input", () => {
+        let val = parseInt(numericInput.value);
+        if (isNaN(val)) val = 0;
+        if (val > maxWeight) val = maxWeight;
+        if (val < 0) val = 0;
+        slide.value = val;
     });
 
     const remove = document.createElement("div");
@@ -247,7 +264,7 @@ function createOptionSlider(container, category, optionName, weight) {
 
     slider.appendChild(sliderLabel);
     slider.appendChild(slide);
-    slider.appendChild(valueDisplay);
+    slider.appendChild(numericInput);
     slider.appendChild(remove);
 
     const addAspectButton = container.querySelector(".buttonSmall");
