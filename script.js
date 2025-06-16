@@ -177,7 +177,10 @@ function createCategories() {
         // Create remove button
         const removec = document.createElement("div");
         removec.classList = "remove inline";
-        removec.textContent = "Remove Category";
+        const removespan = document.createElement("span");
+        removespan.classList = "material-symbols-rounded";
+        removespan.textContent = "close";
+        removec.appendChild(removespan);
 
         removec.addEventListener("click", () => {
             categories.removeChild(div);
@@ -192,6 +195,10 @@ function createCategories() {
         const addaspect = document.createElement("div");
         addaspect.className = "buttonSmall";
         addaspect.textContent = "add aspect";
+        const addspan = document.createElement("span");
+        addspan.textContent = "add";
+        addspan.classList = "material-symbols-rounded";
+        addaspect.appendChild(addspan);
         addaspect.onclick = () => addAspectFn(category, div);
 
         let values = data[category];
@@ -253,7 +260,10 @@ function createOptionSlider(container, category, optionName, weight) {
 
     const remove = document.createElement("div");
     remove.className = "remove";
-    remove.textContent = "X";
+    const removespan = document.createElement("span");
+    removespan.classList = "material-symbols-rounded";
+    removespan.textContent = "close";
+    remove.appendChild(removespan);
 
     remove.addEventListener("click", () => {
         container.removeChild(slider);

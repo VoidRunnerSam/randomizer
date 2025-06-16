@@ -7,7 +7,7 @@
   --bg: #CCC;
   --fontsize: 1rem;
   --radius: 1rem;
-  --spacing: 1rem;
+  --spacing: .5rem;
   --shadow: 0px 1px 4px #0003;
 }
 
@@ -112,7 +112,7 @@ body {
 }
 
 .innerbody {
-    max-width: 768px;
+    max-width: calc(100% - var(--spacing));
     margin: auto;
 }
 
@@ -139,10 +139,10 @@ body {
 }
 
 .container {
-    width: calc(100% - 2em);
+    width: calc(100% - var(--spacing));
     background-color: var(--bgcontain);
     padding: var(--spacing);
-    margin: var(--spacing);
+    margin: var(--spacing) auto;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
@@ -174,7 +174,7 @@ body {
 code {
     background-color: var(--bg);
     font-weight: bold;
-    padding: calc(var(--spacing)/4);
+    padding: calc(var(--spacing) / 2);
     border-radius: calc(var(--radius) / 4);
 }
 
@@ -294,8 +294,8 @@ input[type="range"]::-moz-range-thumb {
 .buttonSmall{
     background-color: var(--accent);
     display: inline-block;
-    padding: calc(var(--fontsize)/4) calc(var(--fontsize));
-    font-size: calc(var(--fontsize)/1.5);
+    padding: calc(var(--spacing)/2);
+    font-size: calc(var(--fontsize));
     cursor: pointer;
     border-radius: calc(var(--radius)/2);
     color: var(--text);
@@ -310,7 +310,7 @@ input[type="range"]::-moz-range-thumb {
 }
 .row{
     margin: 0;
-    padding: calc(var(--spacing)/4);
+    padding: calc(var(--spacing)/2);
     display: flex;
     justify-content: space-between;
 }
@@ -325,6 +325,7 @@ input[type="range"]::-moz-range-thumb {
     border-radius: calc(var(--radius)/4);
     user-select: none;
     cursor: pointer;
+    padding: 0;
 }
 
 .spaced{
@@ -335,6 +336,10 @@ input[type="range"]::-moz-range-thumb {
     margin: calc(var(--spacing)/2);
 }
 
+.button .material-symbols-rounded, .buttonSmall .material-symbols-rounded {
+    padding-left: calc(var(--spacing)/2);
+}
+
 span, .material-symbols-rounded {
     font-variation-settings:
     'FILL' 1,
@@ -343,7 +348,6 @@ span, .material-symbols-rounded {
     'opsz' 24;
     font-size:var(--fontsize);
     vertical-align: top;
-    padding-left: calc(var(--spacing)/2);
 }
 
 .msb {
@@ -374,7 +378,7 @@ span, .material-symbols-rounded {
 }
 
 #settingscontainer {
-    width: calc(100% - 4em);
+    width: calc(100% - calc(var(--spacing) * 2));
     max-width: 736px;
     margin: auto;
     position: fixed;
