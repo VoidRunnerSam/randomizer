@@ -291,7 +291,6 @@ settings.addEventListener("click", () => {
 });
 
 toggle.addEventListener("click", () => {
-    if(data) {
         if (categories.classList.contains("hidden")) {
             categories.classList.remove("hidden");
             toggletext.textContent = "Hide Categories";
@@ -301,18 +300,9 @@ toggle.addEventListener("click", () => {
             toggletext.textContent = "Show Categories";
             toggleicon.textContent = "arrow_drop_down";
         }
-    }
-    else {
-        alert("Please upload a valid JSON file first.");
-    }
     });
 
 function generate() {
-    if (!data) {
-        alert("Please upload a valid JSON file first.");
-        return;
-    }
-    else {
         output.textContent = "";
         let anySelected = false;
 
@@ -332,7 +322,7 @@ function generate() {
                 if (values[optionName]) {
                     values[optionName].weight = parseInt(slider.value);
                 }
-            });
+            );
 
             const row = document.createElement("div");
             row.className = "row";
