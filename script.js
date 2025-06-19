@@ -1,5 +1,5 @@
 const output = document.getElementById("output");
-let data = null;
+let data = {};
 const categories = document.getElementById("categories");
 const toggle = document.getElementById("toggle");
 const toggleicon = document.getElementById("toggleicon");
